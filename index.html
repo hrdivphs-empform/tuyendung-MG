@@ -568,62 +568,15 @@
             }, 4000);
         }
 
-        // Simulation of JD file download generator
+        // Redirect to direct Google Drive download link
         function downloadJD() {
-            showToast("Đang chuẩn bị file tải xuống...", "info");
+            showToast("Đang chuẩn bị máy chủ tải file từ Google Drive...", "info");
             
-            // Simulating dynamically generated text/MD to download as file
-            const jdContent = `
-=========================================
-PHU HUNG SECURITIES (PHS)
-CHUONG TRINH TUYEN DUNG CHUYEN VIEN TU VAN DAU TU CHUNG KHOAN
-=========================================
-
-1. DIA DIEM LAM VIEC:
-- Chi nhanh Tan Binh
-- Chi nhanh Quan 3
-- Chi nhanh Quan 1
-- Phong Quan ly Tai khoan - 05
-- Phong Quan ly Tai khoan Phu My Hung
-
-2. MO TA CONG VIEC (JOB DESCRIPTION):
-- Tim kiem va xay dung moi quan he voi khach hang tiem nang, dong thoi duy tri va cham soc khach hang hien tai duoi su huong dan va ho tro cua quan ly.
-- Xac dinh nhu cau tai chinh chua duoc dap ung cua khach hang de gia tang gia tri dich vu cua PHS.
-- Cung cap cac chien luoc dau tu va giai phap tai chinh phu hop voi nhu cau cua khach hang de nang cao trai nghiem cua ho.
-- De xuat cac y tuong de mo rong tep khach hang phoi hop cung voi doi ngu kinh doanh.
-- Tham gia vao cac su kien va hoat dong kinh doanh de tang nhan dien thuong hieu va mo rong mang luoi chuyen nghiep.
-
-3. YEU CAU CONG VIEC (REQUIREMENTS):
-- Tot nghiep Dai hoc tro len chuyen nganh Tai chinh - Ngan hang, Quan tri Kinh doanh, Kinh doanh Quoc te hoac cac nganh lien quan khac.
-- Co it nhat 1 nam kinh nghiem trong cac linh vuc lien quan nhu: ban hang, bao hiem, bat dong san, tai chinh, ngan hang.
-- Co kien thuc tot ve thi truong tai chinh va chung khoan.
-- Co kinh nghiem lam viec tai cong ty chung khoan va co chung chi hanh nghe chuyen nghiep la mot loi the.
-- Ky nang giao tiep va thuyet trinh xuat sac.
-- Trung thuc, nhiet tinh va co trach nhiem cao.
-- Thanh thao tin hoc van phong MS Office.
-
-4. QUYEN LOI (WHY JOIN PHS?):
-- Thu nhap canh tranh va thuong hieu qua cong viec hap dan.
-- Chuong trinh dao tao chuyen nghiep & lo trinh thăng tien ro rang.
-- Moi truong lam viec nang dong & doi ngu ho tro nhiet tinh.
-- Bao hiem suc khoe toan dien & che do phuc loi tot.
-- Ghi nhan & khen thuong xung dang cho ca nhan xuat sac.
-
-Lien he ung tuyen: tuyendung@phs.vn
-Website: https://www.phs.vn
-            `;
-
-            // Create file download trigger
-            const blob = new Blob([jdContent], { type: 'text/plain;charset=utf-8' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = "PHS_Chuyen_Vien_Tu_Van_Dau_Tu_JD.txt";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-
             setTimeout(() => {
-                showToast("Tải tài liệu tuyển dụng JD thành công!", "success");
+                const driveDownloadUrl = "https://drive.google.com/uc?export=download&id=15LjcMmom46Dh0ueFs2mHPhbKdzNVxyKM";
+                // Open direct download link in a new tab/trigger browser download
+                window.open(driveDownloadUrl, "_blank");
+                showToast("Đã bắt đầu tải file JD!", "success");
             }, 1000);
         }
 
