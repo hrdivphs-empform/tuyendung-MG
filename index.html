@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHS Careers - Thử Thách Tuyển Dụng Gamification</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: radial-gradient(circle at top right, #1a3a2a, #0b130f);
+            color: #f3f4f6;
+        }
+        .text-gold {
+            color: #d4af37;
+        }
+        .bg-gold {
+            background-color: #d4af37;
+        }
+        .border-gold {
+            border-color: #d4af37;
+        }
+        .glow-green {
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+        }
+        .glow-gold {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased">
+
+    <!-- Header -->
+    <header class="border-b border-emerald-900/40 bg-black/30 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Brand Logo Mockup -->
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-yellow-500 to-emerald-600 flex items-center justify-center font-bold text-white shadow-lg shadow-emerald-900/30">
+                    PHS
+                </div>
+                <div>
+                    <h1 class="text-sm font-extrabold tracking-wider text-white uppercase m-0 leading-tight">Phú Hưng</h1>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest leading-none">Securities</p>
+                </div>
+            </div>
+            <!-- Anniversary Badge -->
+            <div class="flex items-center space-x-2 bg-emerald-950/80 border border-emerald-500/30 px-3 py-1 rounded-full text-xs">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-emerald-400 font-semibold">20 Years (2005 - 2025)</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow flex items-center justify-center px-4 py-8">
+        <div class="w-full max-w-3xl">
+
+            <!-- ================= STEP 1: WELCOME & START CHALLENGE ================= -->
+            <div id="step-1" class="transition-all duration-500 transform ease-out bg-emerald-950/20 border border-emerald-900/50 rounded-2xl p-6 md:p-8 text-center glow-green">
+                <div class="inline-block p-4 bg-emerald-900/20 rounded-full mb-6 border border-emerald-500/20">
+                    <i class="fa-solid fa-gamepad text-4xl text-emerald-400 animate-bounce"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-3">CHINH PHỤC THỬ THÁCH</h2>
+                <h3 class="text-lg md:text-xl font-bold text-gold mb-4">MỞ KHÓA CƠ HỘI NGHỀ NGHIỆP TẠI PHS</h3>
+                
+                <p class="text-gray-300 text-sm md:text-base max-w-xl mx-auto mb-8 leading-relaxed">
+                    Chào mừng bạn đến với chương trình tuyển dụng thế hệ mới của <span class="font-semibold text-white">Phú Hưng Securities</span>. Hãy hoàn thành thử thách tư duy phân tích nhanh dưới đây (chỉ mất 45 giây) để thể hiện bản lĩnh đầu tư và mở khóa toàn bộ thông tin tuyển dụng hấp dẫn!
+                </p>
+
+                <div class="bg-black/40 rounded-xl p-5 mb-8 max-w-md mx-auto border border-emerald-800/30 text-left">
+                    <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-3 flex items-center">
+                        <i class="fa-solid fa-circle-info mr-2"></i> Luật chơi siêu đơn giản:
+                    </h4>
+                    <ul class="text-xs text-gray-400 space-y-2">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-emerald-500 mr-2 mt-0.5"></i> Bạn sẽ trả lời nhanh 3 câu hỏi trắc nghiệm logic về Tài chính/Thị trường.</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-emerald-500 mr-2 mt-0.5"></i> Nhận kết quả đánh giá năng lực tư vấn tài chính tức thì.</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-emerald-500 mr-2 mt-0.5"></i> Mở khóa ngay Mô tả Công việc (JD) Chi tiết & Nút Ứng tuyển Nhanh.</li>
+                    </ul>
+                </div>
+
+                <button onclick="startChallenge()" class="w-full sm:w-auto bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-bold py-3.5 px-8 rounded-xl transition duration-300 shadow-lg hover:scale-105 transform">
+                    Bắt Đầu Thử Thách Ngay <i class="fa-solid fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+
+
+            <!-- ================= STEP 2: MINI CHALLENGE GAME ================= -->
+            <div id="step-2" class="hidden transition-all duration-500 transform ease-out bg-emerald-950/20 border border-emerald-900/50 rounded-2xl p-6 md:p-8 glow-green">
+                <!-- Progress & Timer -->
+                <div class="flex justify-between items-center mb-6">
+                    <span id="question-index" class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-900/40 px-3 py-1.5 rounded-lg border border-emerald-800/30">CÂU HỎI 1/3</span>
+                    <div class="flex items-center space-x-2 text-rose-400 bg-rose-950/40 border border-rose-900/30 px-3 py-1 rounded-lg">
+                        <i class="fa-solid fa-clock animate-pulse"></i>
+                        <span id="timer" class="font-mono font-bold">45s</span>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="w-full bg-emerald-950 h-1.5 rounded-full mb-6 overflow-hidden">
+                    <div id="progress-bar" class="bg-gradient-to-r from-emerald-400 to-teal-500 h-full transition-all duration-300" style="width: 33%"></div>
+                </div>
+
+                <!-- Question Area -->
+                <div class="mb-8">
+                    <div id="quiz-scenario" class="text-xs font-bold text-gold uppercase tracking-wider mb-2">PHÂN TÍCH TÌNH HUỐNG</div>
+                    <h3 id="quiz-question" class="text-lg md:text-xl font-bold text-white leading-snug">Câu hỏi đang được tải...</h3>
+                </div>
+
+                <!-- Answer Options -->
+                <div id="quiz-options" class="space-y-3.5">
+                    <!-- Dynamic buttons will render here -->
+                </div>
+            </div>
+
+
+            <!-- ================= STEP 3: SCORE RESULT ================= -->
+            <div id="step-3" class="hidden transition-all duration-500 transform ease-out bg-emerald-950/20 border border-emerald-900/50 rounded-2xl p-6 md:p-8 text-center glow-gold">
+                <div class="inline-block p-4 bg-yellow-950/30 rounded-full mb-6 border border-gold/30">
+                    <i class="fa-solid fa-trophy text-4xl text-gold animate-pulse"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-2">THỬ THÁCH HOÀN THÀNH!</h2>
+                <div class="inline-block bg-emerald-900/30 border border-emerald-800/40 rounded-full px-5 py-2 mb-6">
+                    <p class="text-sm font-semibold">Điểm số của bạn: <span id="final-score" class="text-emerald-400 font-extrabold text-lg">0/3</span></p>
+                </div>
+
+                <!-- Dynamic Personality Recommendation based on Score -->
+                <div class="bg-black/30 rounded-xl p-6 mb-8 max-w-xl mx-auto border border-emerald-800/20">
+                    <h3 id="assessment-title" class="text-lg font-bold text-gold mb-3">Đang đánh giá tư duy...</h3>
+                    <p id="assessment-desc" class="text-gray-300 text-sm leading-relaxed">Phân tích hồ sơ tư duy đầu tư của bạn.</p>
+                </div>
+
+                <div class="animate-bounce mb-2">
+                    <i class="fa-solid fa-chevron-down text-gold"></i>
+                </div>
+
+                <button onclick="unlockJD()" class="w-full sm:w-auto bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-400 hover:to-amber-500 text-slate-950 font-extrabold py-4 px-8 rounded-xl transition duration-300 shadow-xl glow-gold transform hover:scale-105 uppercase tracking-wide">
+                    Mở Khóa Full JD & Ứng Tuyển <i class="fa-solid fa-lock-open ml-2"></i>
+                </button>
+            </div>
+
+
+            <!-- ================= STEP 4: UNLOCKED FULL JD ================= -->
+            <div id="step-4" class="hidden transition-all duration-500 transform ease-out bg-emerald-950/10 border border-emerald-800/30 rounded-3xl overflow-hidden shadow-2xl">
+                <!-- Banner Image Simulation -->
+                <div class="relative bg-gradient-to-r from-emerald-900 to-teal-950 py-12 px-6 md:px-10 text-center border-b border-emerald-800/30">
+                    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                    
+                    <span class="bg-gold text-slate-950 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3 inline-block">Chúng tôi đang tuyển dụng</span>
+                    <h2 class="text-2xl md:text-4xl font-extrabold text-white leading-tight uppercase mb-4 tracking-wide">
+                        Chuyên Viên Tư Vấn Đầu Tư Chứng Khoán
+                    </h2>
+                    
+                    <div class="flex flex-wrap justify-center gap-3 text-xs md:text-sm">
+                        <span class="bg-black/40 px-3.5 py-1.5 rounded-full border border-emerald-700/30 text-emerald-300 flex items-center">
+                            <i class="fa-solid fa-location-dot mr-1.5"></i> TP. Hồ Chí Minh
+                        </span>
+                        <span class="bg-black/40 px-3.5 py-1.5 rounded-full border border-emerald-700/30 text-emerald-300 flex items-center">
+                            <i class="fa-solid fa-users mr-1.5"></i> Khối Môi Giới
+                        </span>
+                        <span class="bg-black/40 px-3.5 py-1.5 rounded-full border border-emerald-700/30 text-emerald-300 flex items-center">
+                            <i class="fa-solid fa-clock mr-1.5"></i> Toàn thời gian
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Locations Alert / Info Box -->
+                <div class="bg-emerald-950/40 border-b border-emerald-800/20 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+                    <div>
+                        <p class="text-xs text-emerald-400 font-bold mb-1.5 uppercase tracking-wide flex items-center">
+                            <i class="fa-solid fa-building mr-1.5"></i> Địa điểm làm việc khả dụng:
+                        </p>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Chi Nhánh Tân Bình, Chi Nhánh Quận 3, Chi Nhánh Quận 1, Phòng Quản lý Tài khoản - 05, Phòng Quản lý Tài khoản Phú Mỹ Hưng.
+                        </p>
+                    </div>
+                    <!-- Download Floating Action Button in Info Bar -->
+                    <div class="flex gap-2 w-full md:w-auto shrink-0">
+                        <button onclick="downloadJD()" class="flex-1 md:flex-none bg-emerald-800/40 hover:bg-emerald-700/50 text-emerald-300 border border-emerald-500/30 hover:border-emerald-400 px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-download"></i> Tải JD (PDF)
+                        </button>
+                        <a href="https://raw.githubusercontent.com/duong-gmp/sample-assets/main/PHS-JD.jpg" target="_blank" class="flex-1 md:flex-none bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-800/60 px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-300 hover:text-white transition flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-image"></i> Ảnh gốc Poster
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Main Details Section -->
+                <div class="p-6 md:p-10 bg-slate-950/80 backdrop-blur-md space-y-8">
+                    
+                    <!-- Grid: JD & Requirements -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        
+                        <!-- Col 1: Job Description -->
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-bold text-white border-b border-emerald-800/40 pb-2 flex items-center">
+                                <span class="w-2.5 h-2.5 rounded-sm bg-gold mr-2"></span>
+                                <i class="fa-solid fa-briefcase text-emerald-400 mr-2"></i> JOB DESCRIPTION
+                            </h3>
+                            <ul class="space-y-3.5">
+                                <li class="flex items-start text-sm text-gray-300">
+                                    <span class="text-gold mr-2.5 mt-1">•</span>
+                                    <span>Tìm kiếm và xây dựng mối quan hệ với khách hàng tiềm năng, đồng thời duy trì và chăm sóc khách hàng hiện tại dưới sự hướng dẫn của quản lý.</span>
+                                </li>
+                                <li class="flex items-start text-sm text-gray-300">
+                                    <span class="text-gold mr-2.5 mt-1">•</span>
+                                    <span>Xác định nhu cầu tài chính chưa được đáp ứng để gia tăng giá trị dịch vụ của PHS.</span>
+                                </li>
+                                <li class="flex items-start text-sm text-gray-300">
+                                    <span class="text-gold mr-2.5 mt-1">•</span>
+                                    <span>Cung cấp các chiến lược đầu tư và giải pháp tài chính phù hợp với nhu cầu của khách hàng để nâng cao trải nghiệm của họ.</span>
+                                </li>
+                                <li class="flex items-start text-sm text-gray-300">
+                                    <span class="text-gold mr-2.5 mt-1">•</span>
+                                    <span>Đề xuất các ý tưởng để mở rộng tệp khách hàng phối hợp cùng với đội ngũ kinh doanh.</span>
+                                </li>
+                                <li class="flex items-start text-sm text-gray-300">
+                                    <span class="text-gold mr-2.5 mt-1">•</span>
+                                    <span>Tham gia vào các sự kiện và hoạt động kinh doanh để tăng nhận diện thương hiệu và mở rộng mạng lưới chuyên nghiệp.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Col 2: Requirements -->
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-bold text-white border-b border-emerald-800/40 pb-2 flex items-center">
+                                <span class="w-2.5 h-2.5 rounded-sm bg-gold mr-2"></span>
+                                <i class="fa-solid fa-user-graduate text-emerald-400 mr-2"></i> REQUIREMENTS
+                            </h3>
+                            <ul class="space-y-3.5">
+                                <li class="flex items-start text-sm text-gray-300">
+                                    <span class="text-gold mr-2.5 mt-1">•</span>
+                                    <span>Tốt nghiệp Đại học trở lên chuyên ngành Tài chính – Ngân hàng, Quản trị Kinh doanh, Kinh doanh Quốc tế hoặc các ngành liên quan khác.</span>
+                                </li>
+                                <li class="flex items-start text-sm text-gray-300">
+                                    <span class="text-gold mr-2.5 mt-1">•</span>
+                                    <span>Có ít nhất 1 năm kinh nghiệm trong các lĩnh vực liên quan như: bán hàng, bảo hiểm, bất động sản, tài chính, ngân hàng.</span>
+                                </li>
+                                <li class="flex items-start text-sm text-gray-300">
+                                    <span class="text-gold mr-2.5 mt-1">•</span>
+                                    <span>Có kiến thức tốt về thị trường tài chính và chứng khoán.</span>
+                                </li>
+                                <li class="flex items-start text-sm text-gray-300">
+                                    <span class="text-gold mr-2.5 mt-1">•</span>
+                                    <span>Có kinh nghiệm làm việc tại công ty chứng khoán và có chứng chỉ hành nghề chuyên nghiệp là một lợi thế.</span>
+                                </li>
+                                <li class="flex items-start text-sm text-gray-300">
+                                    <span class="text-gold mr-2.5 mt-1">•</span>
+                                    <span>Kỹ năng giao tiếp và thuyết trình xuất sắc.</span>
+                                </li>
+                                <li class="flex items-start text-sm text-gray-300">
+                                    <span class="text-gold mr-2.5 mt-1">•</span>
+                                    <span>Trung thực, nhiệt tình và có trách nhiệm cao.</span>
+                                </li>
+                                <li class="flex items-start text-sm text-gray-300">
+                                    <span class="text-gold mr-2.5 mt-1">•</span>
+                                    <span>Thành thạo tin học văn phòng MS Office.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- WHY JOIN PHS (Benefits Showcase) -->
+                    <div class="pt-4">
+                        <h3 class="text-lg font-bold text-white border-b border-emerald-800/40 pb-2 mb-6 flex items-center">
+                            <span class="w-2.5 h-2.5 rounded-sm bg-gold mr-2"></span>
+                            <i class="fa-solid fa-gift text-emerald-400 mr-2"></i> TẠI SAO BẠN NÊN GIA NHẬP PHS?
+                        </h3>
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                            <!-- Benefit 1 -->
+                            <div class="bg-emerald-950/20 border border-emerald-900/50 p-4 rounded-xl text-center flex flex-col items-center justify-center space-y-2">
+                                <div class="text-2xl text-gold"><i class="fa-solid fa-chart-line"></i></div>
+                                <span class="text-[11px] font-bold text-gray-200">Thu nhập & Thưởng hấp dẫn</span>
+                            </div>
+                            <!-- Benefit 2 -->
+                            <div class="bg-emerald-950/20 border border-emerald-900/50 p-4 rounded-xl text-center flex flex-col items-center justify-center space-y-2">
+                                <div class="text-2xl text-gold"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <span class="text-[11px] font-bold text-gray-200">Đào tạo & Lộ trình nghề nghiệp</span>
+                            </div>
+                            <!-- Benefit 3 -->
+                            <div class="bg-emerald-950/20 border border-emerald-900/50 p-4 rounded-xl text-center flex flex-col items-center justify-center space-y-2">
+                                <div class="text-2xl text-gold"><i class="fa-solid fa-users-gear"></i></div>
+                                <span class="text-[11px] font-bold text-gray-200">Môi trường Năng động</span>
+                            </div>
+                            <!-- Benefit 4 -->
+                            <div class="bg-emerald-950/20 border border-emerald-900/50 p-4 rounded-xl text-center flex flex-col items-center justify-center space-y-2">
+                                <div class="text-2xl text-gold"><i class="fa-solid fa-heart-pulse"></i></div>
+                                <span class="text-[11px] font-bold text-gray-200">Bảo hiểm & Chế độ đầy đủ</span>
+                            </div>
+                            <!-- Benefit 5 -->
+                            <div class="bg-emerald-950/20 border border-emerald-900/50 p-4 rounded-xl text-center flex flex-col items-center justify-center space-y-2 col-span-2 md:col-span-1">
+                                <div class="text-2xl text-gold"><i class="fa-solid fa-award"></i></div>
+                                <span class="text-[11px] font-bold text-gray-200">Ghi nhận hiệu quả công việc</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA BUTTON & EMAIL AREA (Only appears after Unlock) -->
+                    <div id="cta-section" class="pt-8 border-t border-emerald-800/30 text-center space-y-6">
+                        <div class="bg-gradient-to-r from-emerald-900/40 to-teal-950/40 border border-emerald-500/20 rounded-2xl p-6 max-w-xl mx-auto">
+                            <p class="text-sm text-emerald-400 font-bold uppercase tracking-wider mb-2">Sẵn Sàng Kiến Tạo Tương Lai Cùng PHS?</p>
+                            <h4 class="text-lg md:text-xl font-bold text-white mb-4">Gửi CV của bạn về cho chúng tôi</h4>
+                            <div class="flex items-center justify-center space-x-2 bg-black/40 px-4 py-3 rounded-xl border border-emerald-800/40 w-fit mx-auto">
+                                <i class="fa-solid fa-envelope text-gold text-lg"></i>
+                                <span class="font-mono text-sm md:text-base text-gray-200 font-semibold select-all">tuyendung@phs.vn</span>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons Group -->
+                        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-2">
+                            <!-- Quick Apply -->
+                            <button onclick="openApplyModal()" class="w-full sm:w-auto bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-extrabold py-4 px-8 rounded-xl transition duration-300 shadow-lg shadow-emerald-900/40 transform hover:scale-105 text-sm uppercase tracking-wider flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i> Ứng tuyển nhanh
+                            </button>
+
+                            <!-- Document Download Primary -->
+                            <button onclick="downloadJD()" class="w-full sm:w-auto bg-emerald-900/30 hover:bg-emerald-900/60 text-emerald-400 hover:text-emerald-300 border border-emerald-800 hover:border-emerald-500 py-4 px-8 rounded-xl transition duration-300 transform hover:scale-105 text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-file-pdf"></i> Tải file JD đầy đủ
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Interactive Apply Modal (Non-blocking Custom UI) -->
+    <div id="apply-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-all duration-300">
+        <div class="bg-slate-900 border border-emerald-800/60 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl">
+            <!-- Modal Header -->
+            <div class="bg-emerald-950/60 px-6 py-4 border-b border-emerald-800/30 flex justify-between items-center">
+                <h3 class="font-bold text-lg text-white">Nộp hồ sơ ứng tuyển nhanh</h3>
+                <button onclick="closeApplyModal()" class="text-gray-400 hover:text-white transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <!-- Modal Body (Form) -->
+            <form id="recruitment-form" onsubmit="handleFormSubmit(event)" class="p-6 space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5">Họ và Tên <span class="text-rose-500">*</span></label>
+                    <input type="text" required class="w-full bg-slate-950 border border-emerald-800/40 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-emerald-500 transition">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5">Số điện thoại <span class="text-rose-500">*</span></label>
+                        <input type="tel" required class="w-full bg-slate-950 border border-emerald-800/40 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-emerald-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5">Email liên hệ <span class="text-rose-500">*</span></label>
+                        <input type="email" required class="w-full bg-slate-950 border border-emerald-800/40 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-emerald-500 transition">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5">Link CV cá nhân (Drive/Dropbox/TopCV) <span class="text-rose-500">*</span></label>
+                    <input type="url" placeholder="https://..." required class="w-full bg-slate-950 border border-emerald-800/40 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-emerald-500 transition">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5">Tin nhắn gửi nhà tuyển dụng (Không bắt buộc)</label>
+                    <textarea rows="3" class="w-full bg-slate-950 border border-emerald-800/40 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-emerald-500 transition" placeholder="Giới thiệu nhanh bản thân và động lực làm việc tại PHS..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 px-6 rounded-xl transition duration-200 mt-2">
+                    Gửi Hồ Sơ Ứng Tuyển
+                </button>
+            </form>
+            <!-- Success Notification inside Modal -->
+            <div id="form-success" class="hidden p-8 text-center space-y-4">
+                <div class="inline-block p-4 bg-emerald-950/50 rounded-full border border-emerald-500/30">
+                    <i class="fa-solid fa-circle-check text-4xl text-emerald-400 animate-bounce"></i>
+                </div>
+                <h4 class="text-xl font-bold text-white">Nộp Đơn Thành Công!</h4>
+                <p class="text-sm text-gray-300 max-w-sm mx-auto leading-relaxed">
+                    Hệ thống PHS Talent Acquisition đã nhận được đơn ứng tuyển của bạn. Chúng tôi sẽ liên hệ lại qua Email/SĐT của bạn trong vòng 2 ngày làm việc. Chúc bạn một ngày tốt lành!
+                </p>
+                <button onclick="closeApplyModal()" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2.5 px-6 rounded-lg transition text-xs">
+                    Đóng cửa sổ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification System (Replaces browser alerts) -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-3"></div>
+
+    <!-- Footer -->
+    <footer class="bg-black/40 border-t border-emerald-900/30 py-5 text-center text-xs text-gray-500 mt-12">
+        <div class="max-w-6xl mx-auto px-4 space-y-2">
+            <p>© 2026 Phú Hưng Securities (PHS). Bảo lưu mọi quyền.</p>
+            <p class="text-[10px]">Thử thách Gamification được phát triển nhằm mục đích đánh giá sơ bộ năng lực tuyển dụng.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic Script -->
+    <script>
+        // Quiz Data
+        const quizData = [
+            {
+                scenario: "Phân Tích Xu Hướng & Logic",
+                question: "Nếu chỉ số VN-Index liên tục phá vỡ các vùng kháng cự với khối lượng giao dịch đột biến tăng dần, điều này thường báo hiệu trạng thái thị trường nào?",
+                options: [
+                    { text: "Thị trường đang phân phối và chuẩn bị bước vào xu hướng giảm mạnh.", score: 0 },
+                    { text: "Thị trường xác nhận xu hướng tăng mạnh (Uptrend) và dòng tiền đang gia nhập mạnh mẽ.", score: 10 },
+                    { text: "Thị trường đang rơi vào trạng thái đóng băng thanh khoản.", score: 0 },
+                    { text: "Không có ý nghĩa gì về mặt xu hướng giá.", score: 0 }
+                ]
+            },
+            {
+                scenario: "Giải Quyết Tình Huống Khách Hàng",
+                question: "Một khách hàng đang lo lắng vì danh mục đầu tư ngắn hạn của họ bị giảm 5% do tin tức vĩ mô bất lợi tạm thời. Bạn nên làm gì trước tiên?",
+                options: [
+                    { text: "Khuyên khách hàng lập tức cắt lỗ toàn bộ danh mục ngay mà không cần phân tích thêm.", score: 0 },
+                    { text: "Tránh nghe điện thoại của khách hàng cho đến khi thị trường hồi phục trở lại.", score: 0 },
+                    { text: "Lắng nghe nỗi lo của họ, phân tích đánh giá lại xem các yếu tố cơ bản của cổ phiếu có thay đổi không và đưa ra kế hoạch tái cơ cấu chi tiết.", score: 10 },
+                    { text: "Cam kết chắc chắn với khách hàng rằng tài khoản sẽ tăng gấp đôi vào tuần sau để họ yên lòng.", score: 0 }
+                ]
+            },
+            {
+                scenario: "Kiến Thức & Đạo Đức Nghề Nghiệp",
+                question: "Khi phát hiện một thông tin nội bộ chưa được công bố rộng rãi của một doanh nghiệp niêm yết, hành vi nào dưới đây là đúng đắn nhất đối với một Chuyên viên Tư vấn?",
+                options: [
+                    { text: "Tuyệt đối không sử dụng thông tin đó để giao dịch tư trục lợi hoặc tư vấn trục lợi cho khách hàng nhóm VIP.", score: 10 },
+                    { text: "Chia sẻ rộng rãi lên các hội nhóm mạng xã hội để thu hút thêm nhiều người theo dõi cá nhân.", score: 0 },
+                    { text: "Khuyên toàn bộ khách hàng dồn toàn bộ nguồn lực tài chính mua mạnh cổ phiếu đó.", score: 0 },
+                    { text: "Yêu cầu doanh nghiệp trả phí tư vấn cao hơn để đổi lấy sự im lặng.", score: 0 }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let totalScore = 0;
+        let timerInterval;
+        let timeLeft = 45;
+
+        // Step transition helper
+        function showStep(stepNum) {
+            document.getElementById('step-1').classList.add('hidden');
+            document.getElementById('step-2').classList.add('hidden');
+            document.getElementById('step-3').classList.add('hidden');
+            document.getElementById('step-4').classList.add('hidden');
+
+            const activeStep = document.getElementById(`step-${stepNum}`);
+            activeStep.classList.remove('hidden');
+            activeStep.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                activeStep.classList.remove('opacity-0', 'scale-95');
+                activeStep.classList.add('opacity-100', 'scale-100');
+            }, 50);
+        }
+
+        // Start challenge
+        function startChallenge() {
+            showStep(2);
+            loadQuestion();
+            startTimer();
+        }
+
+        // Start timer
+        function startTimer() {
+            timeLeft = 45;
+            document.getElementById('timer').innerText = `${timeLeft}s`;
+            
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').innerText = `${timeLeft}s`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    finishChallenge();
+                }
+            }, 1000);
+        }
+
+        // Load Quiz Question
+        function loadQuestion() {
+            if (currentQuestion >= quizData.length) {
+                clearInterval(timerInterval);
+                finishChallenge();
+                return;
+            }
+
+            const currentData = quizData[currentQuestion];
+            document.getElementById('question-index').innerText = `CÂU HỎI ${currentQuestion + 1}/${quizData.length}`;
+            document.getElementById('progress-bar').style.width = `${((currentQuestion + 1) / quizData.length) * 100}%`;
+            document.getElementById('quiz-scenario').innerText = currentData.scenario;
+            document.getElementById('quiz-question').innerText = currentData.question;
+
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+
+            currentData.options.forEach((opt) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left bg-emerald-950/40 hover:bg-emerald-900/40 border border-emerald-900/60 hover:border-emerald-500/50 p-4 rounded-xl text-sm transition duration-150 flex justify-between items-center group text-gray-200 hover:text-white";
+                btn.innerHTML = `
+                    <span>${opt.text}</span>
+                    <i class="fa-solid fa-circle-chevron-right text-emerald-800 group-hover:text-emerald-400 transition ml-3"></i>
+                `;
+                btn.onclick = () => selectAnswer(opt.score);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        // Select answer
+        function selectAnswer(score) {
+            totalScore += score;
+            currentQuestion++;
+            loadQuestion();
+        }
+
+        // Finish and show score evaluation
+        function finishChallenge() {
+            showStep(3);
+            const scoreCount = totalScore / 10;
+            document.getElementById('final-score').innerText = `${scoreCount}/${quizData.length}`;
+
+            const titleEl = document.getElementById('assessment-title');
+            const descEl = document.getElementById('assessment-desc');
+
+            if (scoreCount === 3) {
+                titleEl.innerText = "Tư Duy Khác Biệt - Nhà Quản Lý Tài Sản Thực Thụ!";
+                descEl.innerText = "Bạn có một tư duy phân tích nhạy bén vô cùng ấn tượng và hiểu rất rõ tầm quan trọng của tính minh bạch cũng như đạo đức nghề nghiệp tại thị trường chứng khoán. Bạn hoàn toàn sẵn sàng cho vị trí Chuyên viên Tư vấn Đầu tư Cấp cao tại PHS!";
+            } else if (scoreCount >= 1) {
+                titleEl.innerText = "Tiềm Năng Lớn - Sẵn Sàng Bứt Phá!";
+                descEl.innerText = "Khả năng phản xạ và xử lý tình huống tài chính của bạn khá tốt. Với một môi trường đào tạo chuyên nghiệp bài bản như tại PHS, bạn chắc chắn sẽ phát triển nhanh chóng và đột phá hiệu suất của mình!";
+            } else {
+                titleEl.innerText = "Người Tìm Kiếm Cơ Hội Mới!";
+                descEl.innerText = "Đôi khi lý thuyết và thực tiễn có chút khoảng cách, nhưng thái độ ham học hỏi mới là điều quyết định sự thành bại. Chúng tôi luôn hoan nghênh những ứng viên sẵn sàng bứt phá khỏi vùng an toàn để nắm bắt kiến thức tài chính thực tiễn!";
+            }
+        }
+
+        // Step 4: Unlock Job Description & Apply Button
+        function unlockJD() {
+            showStep(4);
+            document.getElementById('step-4').scrollIntoView({ behavior: 'smooth' });
+            showToast("Đã mở khoá thành công bản tin tuyển dụng đầy đủ!", "success");
+        }
+
+        // Toast Notification System
+        function showToast(message, type = "info") {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `flex items-center p-4 rounded-xl text-xs font-semibold shadow-lg transition-all duration-300 transform translate-y-2 opacity-0 max-w-sm border ${
+                type === "success" 
+                    ? "bg-emerald-950 border-emerald-500 text-emerald-400" 
+                    : "bg-slate-900 border-slate-800 text-gray-300"
+            }`;
+            
+            toast.innerHTML = `
+                <i class="${type === 'success' ? 'fa-solid fa-circle-check mr-2 text-sm' : 'fa-solid fa-info-circle mr-2 text-sm'}"></i>
+                <span class="flex-grow">${message}</span>
+            `;
+            container.appendChild(toast);
+            
+            // Animate In
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+                toast.classList.add('translate-y-0', 'opacity-100');
+            }, 10);
+
+            // Animate Out
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        // Simulation of JD file download generator
+        function downloadJD() {
+            showToast("Đang chuẩn bị file tải xuống...", "info");
+            
+            // Simulating dynamically generated text/MD to download as file
+            const jdContent = `
+=========================================
+PHU HUNG SECURITIES (PHS)
+CHUONG TRINH TUYEN DUNG CHUYEN VIEN TU VAN DAU TU CHUNG KHOAN
+=========================================
+
+1. DIA DIEM LAM VIEC:
+- Chi nhanh Tan Binh
+- Chi nhanh Quan 3
+- Chi nhanh Quan 1
+- Phong Quan ly Tai khoan - 05
+- Phong Quan ly Tai khoan Phu My Hung
+
+2. MO TA CONG VIEC (JOB DESCRIPTION):
+- Tim kiem va xay dung moi quan he voi khach hang tiem nang, dong thoi duy tri va cham soc khach hang hien tai duoi su huong dan va ho tro cua quan ly.
+- Xac dinh nhu cau tai chinh chua duoc dap ung cua khach hang de gia tang gia tri dich vu cua PHS.
+- Cung cap cac chien luoc dau tu va giai phap tai chinh phu hop voi nhu cau cua khach hang de nang cao trai nghiem cua ho.
+- De xuat cac y tuong de mo rong tep khach hang phoi hop cung voi doi ngu kinh doanh.
+- Tham gia vao cac su kien va hoat dong kinh doanh de tang nhan dien thuong hieu va mo rong mang luoi chuyen nghiep.
+
+3. YEU CAU CONG VIEC (REQUIREMENTS):
+- Tot nghiep Dai hoc tro len chuyen nganh Tai chinh - Ngan hang, Quan tri Kinh doanh, Kinh doanh Quoc te hoac cac nganh lien quan khac.
+- Co it nhat 1 nam kinh nghiem trong cac linh vuc lien quan nhu: ban hang, bao hiem, bat dong san, tai chinh, ngan hang.
+- Co kien thuc tot ve thi truong tai chinh va chung khoan.
+- Co kinh nghiem lam viec tai cong ty chung khoan va co chung chi hanh nghe chuyen nghiep la mot loi the.
+- Ky nang giao tiep va thuyet trinh xuat sac.
+- Trung thuc, nhiet tinh va co trach nhiem cao.
+- Thanh thao tin hoc van phong MS Office.
+
+4. QUYEN LOI (WHY JOIN PHS?):
+- Thu nhap canh tranh va thuong hieu qua cong viec hap dan.
+- Chuong trinh dao tao chuyen nghiep & lo trinh thăng tien ro rang.
+- Moi truong lam viec nang dong & doi ngu ho tro nhiet tinh.
+- Bao hiem suc khoe toan dien & che do phuc loi tot.
+- Ghi nhan & khen thuong xung dang cho ca nhan xuat sac.
+
+Lien he ung tuyen: tuyendung@phs.vn
+Website: https://www.phs.vn
+            `;
+
+            // Create file download trigger
+            const blob = new Blob([jdContent], { type: 'text/plain;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = "PHS_Chuyen_Vien_Tu_Van_Dau_Tu_JD.txt";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            setTimeout(() => {
+                showToast("Tải tài liệu tuyển dụng JD thành công!", "success");
+            }, 1000);
+        }
+
+        // Modal Functions for Quick Application Form
+        function openApplyModal() {
+            document.getElementById('apply-modal').classList.remove('hidden');
+            document.getElementById('recruitment-form').classList.remove('hidden');
+            document.getElementById('form-success').classList.add('hidden');
+        }
+
+        function closeApplyModal() {
+            document.getElementById('apply-modal').classList.add('hidden');
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            document.getElementById('recruitment-form').classList.add('hidden');
+            document.getElementById('form-success').classList.remove('hidden');
+            showToast("Gửi hồ sơ ứng tuyển thành công!", "success");
+        }
+    </script>
+</body>
+</html>
